@@ -1,7 +1,7 @@
 import json
 import boto3
 from datetime import datetime
-import uuid
+from botocore.exceptions import ClientError
 
 dynamodb = boto3.resource('dynamodb')
 table = dynamodb.Table('LogsTable')
@@ -21,7 +21,7 @@ def get_next_log_id():
         )
         
         return next_id
-    except ClientError as e: # type: ignore
+    except ClientError as e:
         print(f"Error getting or updating LogIdCounter: {e}")
         raise
 
