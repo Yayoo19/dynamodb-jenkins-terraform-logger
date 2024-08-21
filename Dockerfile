@@ -21,7 +21,7 @@ RUN apt-get update && apt-get install -y \
 USER jenkins
 
 # Copy the Groovy script to the init directory
-COPY src/create-job.groovy /usr/share/jenkins/ref/init.groovy.d/create-job.groovy
+COPY create-job.groovy /usr/share/jenkins/ref/init.groovy.d/create-job.groovy
 
 # Expose Jenkins port
 EXPOSE 8080
